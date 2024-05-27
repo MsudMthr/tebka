@@ -4,6 +4,7 @@ import { createI18n as createVueI18N } from 'vue-i18n';
 
 import en from '@/locales/en/index';
 import fa from '@/locales/fa/index';
+import ar from '@/locales/ar/index';
 
 class LanguageService {
     /**
@@ -21,7 +22,7 @@ class LanguageService {
      * @returns {String}
      */
     static get DEFAULT() {
-        return 'en';
+        return 'fa';
     }
 
     /**
@@ -59,7 +60,7 @@ export default LanguageService;
 const vueI18N = createVueI18N({
     locale: LanguageService.get(),
     fallbackLocale: LanguageService.DEFAULT,
-    messages: { en, fa }
+    messages: { en, fa, ar }
 });
 
 export function createI18n() {
