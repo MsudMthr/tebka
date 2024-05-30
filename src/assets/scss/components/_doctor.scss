@@ -1,0 +1,26 @@
+.doctor-details {
+  &__profile {
+    &-image {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+    }
+
+    &-name {
+      font-size: 15px;
+      line-height: 24px;
+      font-weight: 500;
+    }
+  }
+}
+
+@media screen and (min-width: 768px ) {
+  .doctor-details {
+    &__profile {
+      &-image {
+        width: 96px;
+        height: 96px;
+      }
+    }
+  }
+}

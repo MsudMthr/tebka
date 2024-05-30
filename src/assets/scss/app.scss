@@ -13,6 +13,10 @@ html, body, #app {
   background: #F5F5F8;
 }
 
+p {
+  margin-bottom: 0 !important;
+}
+
 @import "variables";
 @import "bootstrap/scss/bootstrap";
 
@@ -27,3 +31,4 @@ html, body, #app {
 @import "components/tooltip";
 @import "components/calendar-view";
 @import "components/date-picker";
+@import "components/doctor";
