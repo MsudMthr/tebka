@@ -1,49 +1,17 @@
 <template>
-    <header class="header d-flex align-items-center bg-primary px-2">
-        <button
-            type="submit"
-            class="btn btn-sm text-white"
-        >
-            <i class="bi-list h4"></i>
-        </button>
-
-        <div class="px-2">
-            <slot name="start">
-                <div class="h5 text-white mb-0">Eghamat24</div>
-            </slot>
-        </div>
-
-        <div class="ms-auto">
-            <slot name="end"></slot>
-
-            <AppSettings />
-
-            <button
-                type="button"
-                class="btn btn-sm text-white"
-                @click="logout"
-            >
-                <i class="bi-power h4"></i>
-            </button>
-        </div>
+    <header class="header d-flex align-items-center justify-content-center bg-dark text-white px-2">
+        Header
     </header>
 </template>
 
 <script>
     import { useRouter } from 'vue-router';
 
-    // Components
-    import AppSettings from '@/components/layout/AppSettings.vue';
-
     // Services
     import AuthenticationService from '@/services/authentication.service';
 
     export default {
         name: 'VHeader',
-
-        components: {
-            AppSettings
-        },
 
         setup() {
             const router = useRouter();
