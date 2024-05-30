@@ -3,14 +3,8 @@
         <VHeader/>
     </slot>
 
-    <main class="row g-0 flex-fill">
-        <slot name="side-bar">
-            <VSideMenu />
-        </slot>
-
-        <div class="col bg-body-tertiary p-4">
-            <slot>Content</slot>
-        </div>
+    <main class="">
+        <slot>Content</slot>
     </main>
 
     <slot name="footer">
