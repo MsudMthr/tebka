@@ -1,0 +1,55 @@
+$gray: #495057;
+$primary: #3454D1;
+$secondary: #7B9AB4;
+$success: #28A745;
+$danger: #DC3545;
+$warning: #FFC107;
+$info: #3BACFF;
+$light: #f8f9fa;
+$mute: #6c757d;
+$dark: #212121;
+
+$main-colors: (
+    "primary": $primary,
+    "secondary": $secondary,
+    "success": $success,
+    "danger": $danger,
+    "warning": $warning,
+    "info": $info,
+    "gray": $gray,
+    "light": $light,
+    "mute": $mute,
+    "dark": $dark,
+);
+
+$theme-colors: $main-colors;
+
+$spacer: 1rem;
+$spacers: (
+        0: 0,
+        1: $spacer * .25, // 4px
+        2: $spacer * .5, // 8px
+        3: $spacer * .75, // 12px
+        4: $spacer, // 16px
+        5: $spacer * 1.25, // 20px
+        6: $spacer * 1.5, // 24px
+        7: $spacer * 1.75, // 28px
+        8: $spacer * 2, // 32px
+        9: $spacer * 2.25, // 36px
+        10: $spacer * 2.5, // 40px
+);
+
+$font-size-base: 1rem;
+$font-sizes: (
+        1: $font-size-base * .625, // 10px
+        2: $font-size-base * .75, // 12px
+        3: $font-size-base * .875, // 14px
+        4: $font-size-base, // 16px
+        5: $font-size-base * 1.125, // 18px
+        6: $font-size-base * 1.25 // 20px
+);
+
+$border-color: #CBD7DD;
+$background: #ECEFF1;
+
+$primary-bg-subtle: inherit;
