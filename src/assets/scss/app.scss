@@ -10,7 +10,9 @@ html, body, #app {
 #app {
   display: flex;
   flex-direction: column;
+  background: #F5F5F8;
 }
+
 @import "variables";
 @import "bootstrap/scss/bootstrap";
 

@@ -20,5 +20,20 @@ ThemeService.updateDOM();
 if (LanguageService.isRtl()) {
     import('@/assets/scss/app-rtl.scss');
 } else {
-    import('@/assets/scss/app.scss');
+    import('@/assets/scss/app-ltr.scss');
+}
+
+switch (LanguageService.get()) {
+    case 'fa':
+        import('@/assets/scss/typography/_typo.scss');
+        break;
+    case 'en':
+        import('@/assets/scss/typography/_typo-en.scss');
+        break;
+    case 'ar':
+        import('@/assets/scss/typography/_typo-ar.scss');
+        break;
+    default:
+        import('@/assets/scss/typography/_typo.scss');
+        break;
 }
