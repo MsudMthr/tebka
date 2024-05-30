@@ -34,4 +34,6 @@ export default {
     "Dark": "تیره",
     "System": "سیستم",
     "Settings": "تنظیمات",
+    "get turn":"دریافت نوبت",
+    "first time":"اولین زمان"
 };

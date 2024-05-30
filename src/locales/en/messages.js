@@ -34,4 +34,6 @@ export default {
     "Dark": "Dark",
     "System": "System",
     "Settings": "Settings",
+    "get turn":"get turn",
+    "first time":"first time"
 };

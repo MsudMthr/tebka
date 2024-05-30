@@ -33,5 +33,7 @@ export default {
     "Light": "فاتح",
     "Dark": "داكن",
     "System": "النظام",
-    "Settings": "الإعدادات"
+    "Settings": "الإعدادات",
+    "get turn":"احصل على الدور",
+    "first time":"اول مرة"
 };
