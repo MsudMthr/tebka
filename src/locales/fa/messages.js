@@ -37,5 +37,7 @@ export default {
     "get turn":"دریافت نوبت",
     "first time":"اولین زمان",
     "Introduction": 'معرفی',
-    "doctor": 'دکتر'
+    "doctor": 'دکتر',
+    "View more":"مشاهده بیشتر",
+    "View less":"مشاهده کمتر",
 };

@@ -37,5 +37,7 @@ export default {
     "get turn":"get turn",
     "first time":"first time",
     "Introduction": 'Introduction',
-    "doctor": 'doctor'
+    "doctor": 'doctor',
+    "View more":"View more",
+    "View less":"View less"
 };

@@ -34,8 +34,10 @@ export default {
     "Dark": "داكن",
     "System": "النظام",
     "Settings": "الإعدادات",
-    "get turn":"احصل على الدور",
-    "first time":"اول مرة",
+    "get turn": "احصل على الدور",
+    "first time": "اول مرة",
     "Introduction": 'مقدمة',
-    "doctor": 'طبيب'
+    "doctor": 'طبيب',
+    "View more": "عرض المزيد",
+    "View less": "عرض أقل",
 };
