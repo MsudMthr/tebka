@@ -1,6 +1,6 @@
 <template>
 <VLayout>
-    <div class="doctor-details container mt-2 mt-md-4">
+    <div class="doctor-details container my-8 mt-md-4">
         <div class="row g-5">
 
             <div class="col-12 col-lg-8">
