@@ -1,12 +1,12 @@
 <template>
-    <div class="bg-white p-5 rounded d-flex flex-column gap-7">
+    <div class="doctor-details__appointment bg-white p-6 rounded d-flex flex-column gap-7">
         <div v-for="item of items" :key="item.id">
-            <p class="fs-lg-3 fs-2 fw-medium mb-1">{{ item.name }}</p>
-            <div class="d-flex align-items-center justify-content-between">
-                <p class="fs-lg-3 fs-2">
+            <p class="doctor-details__appointment-text fw-medium mb-1">{{ item.name }}</p>
+            <div class="d-flex align-items-center justify-content-between gap-2">
+                <p class="doctor-details__appointment-text">
                     {{ $t('first time') }} {{ getFistTimeText(item.first_time) }}
                 </p>
-                <button class="btn btn-primary px-lg-4 py-lg-2  fs-lg-3 fs-2 fw-bold" type="button">
+                <button class="btn btn-primary px-lg-6 py-lg-2 px-4 py-1 fs-lg-3 fs-2 fw-bold text-nowrap" type="button">
                     {{ $t('get turn') }}
                 </button>
             </div>
