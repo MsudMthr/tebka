@@ -35,5 +35,7 @@ export default {
     "System": "سیستم",
     "Settings": "تنظیمات",
     "get turn":"دریافت نوبت",
-    "first time":"اولین زمان"
+    "first time":"اولین زمان",
+    "Introduction": 'معرفی',
+    "doctor": 'دکتر'
 };

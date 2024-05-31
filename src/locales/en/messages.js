@@ -35,5 +35,7 @@ export default {
     "System": "System",
     "Settings": "Settings",
     "get turn":"get turn",
-    "first time":"first time"
+    "first time":"first time",
+    "Introduction": 'Introduction',
+    "doctor": 'doctor'
 };

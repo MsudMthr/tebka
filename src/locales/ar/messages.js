@@ -35,5 +35,7 @@ export default {
     "System": "النظام",
     "Settings": "الإعدادات",
     "get turn":"احصل على الدور",
-    "first time":"اول مرة"
+    "first time":"اول مرة",
+    "Introduction": 'مقدمة',
+    "doctor": 'طبيب'
 };
