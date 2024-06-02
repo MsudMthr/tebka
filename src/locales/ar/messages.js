@@ -40,4 +40,7 @@ export default {
     "doctor": 'طبيب',
     "View more": "عرض المزيد",
     "View less": "عرض أقل",
+    "Phone":"هاتف",
+    "Office address and phone number" :"عنوان المكتب ورقم الهاتف",
+    "Address":"عنوان"
 };

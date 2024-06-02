@@ -39,5 +39,8 @@ export default {
     "Introduction": 'Introduction',
     "doctor": 'doctor',
     "View more":"View more",
-    "View less":"View less"
+    "View less":"View less",
+    "Phone":"Phone",
+    "Office address and phone number" :"Office address and phone number",
+    "Address":"Address"
 };
