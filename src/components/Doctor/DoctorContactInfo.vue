@@ -15,7 +15,7 @@
         <p class="fw-medium">{{$t('Address')}}:</p>
         <p class="ms-1">{{doctor.address}}</p>
     </div>
-    <div style="height:200px;">
+    <div style="height:112px;">
         <LMap ref="map" v-model:zoom="zoom" :center="latLng(35.715298, 51.404343)">
             <LMarker :lat-lng="latLng(35.715298, 51.404343)"></LMarker>
             <LTileLayer

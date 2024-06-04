@@ -70,6 +70,29 @@
         }
     }
 
+    &__comments {
+        &-title {
+            font-size: 12px;
+            line-height: 24px;
+        }
+
+        &-add-comment {
+            font-size: 12px;
+            line-height: 24px;
+        }
+
+        &-divider {
+            margin: 15px 0;
+            height: 1px;
+            background: #e4e4e8;
+            width: 100%;
+        }
+    }
+
+    &-progress {
+        height: 3px;
+    }
+
 }
 
 @media screen and (min-width: 768px) {
@@ -98,6 +121,16 @@
         &__contact {
             &-title {
                 font-size: 16px;
+            }
+        }
+
+        &__comments {
+            &-title {
+                font-size: 16px;
+            }
+
+            &-add-comment {
+                font-size: 14px;
             }
         }
 

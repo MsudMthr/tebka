@@ -13,6 +13,8 @@
                 <DoctorDescription :doctor="doctor"/>
 
                 <DoctorContactInfo :doctor="doctor"/>
+
+                <DoctorComments :doctor="doctor" />
             </div>
 
             <div class="col-12 col-md-5 col-lg-4 d-none d-lg-block">
@@ -33,9 +35,10 @@ import DoctorDescription from '@/components/Doctor/DoctorDescription.vue';
 // Controller
 import useDoctor from '@/controller/DoctorController';
 import DoctorContactInfo from "@/components/Doctor/DoctorContactInfo.vue";
+import DoctorComments from "@/components/Doctor/DoctorComments.vue";
 
 export default {
-    components: {DoctorContactInfo, DoctorDescription, DoctorProfile, VLayout, DoctorAppointment},
+    components: {DoctorComments, DoctorContactInfo, DoctorDescription, DoctorProfile, VLayout, DoctorAppointment},
 
     setup() {
         const {doctor} = useDoctor();
