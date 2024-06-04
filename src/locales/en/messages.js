@@ -42,5 +42,12 @@ export default {
     "View less":"View less",
     "Phone":"Phone",
     "Office address and phone number" :"Office address and phone number",
-    "Address":"Address"
+    "Address":"Address",
+    "Comments": "Comments",
+    "{count} people have shared their experience of visiting Dr. {name}": "<strong>{count} people</strong> have shared their experience of visiting Dr. {name}",
+    "{count} people have shared their experience": "<strong>{count} people</strong> have shared their experience",
+    "Register a comment":"Register a comment",
+    "Secretary" :"Secretary",
+    "How to accept" :"How to accept",
+    "Doctor" :"Doctor",
 };

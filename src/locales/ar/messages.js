@@ -42,5 +42,13 @@ export default {
     "View less": "عرض أقل",
     "Phone":"هاتف",
     "Office address and phone number" :"عنوان المكتب ورقم الهاتف",
-    "Address":"عنوان"
+    "Address":"عنوان",
+    "Comments": "تعليقات",
+    "{count} people have shared their experience of visiting Dr. {name}": "<strong>شارك {count}</strong> من الأشخاص تجربتهم في زيارة الدكتور {name}",
+    "{count} people have shared their experience": "<strong>شارك {count}</strong> من الأشخاص تجربتهم",
+    "Register a comment":"تسجيل تعليق",
+    "Secretary" :"سكرتير",
+    "How to accept" :"كيفية قبول",
+    "Doctor" :"طبيب",
+
 };

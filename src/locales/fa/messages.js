@@ -42,5 +42,12 @@ export default {
     "View less":"مشاهده کمتر",
     "Phone":"تلفن",
     "Address":"آدرس",
-    "Office address and phone number" :"آدرس و تلفن مطب"
+    "Office address and phone number" :"آدرس و تلفن مطب",
+    "Comments": "نظرات",
+    "{count} people have shared their experience of visiting Dr. {name}": "<strong>{count} نفر</strong> تجربه خود را از مراجعه به دکتر {name} به اشتراک گذاشته اند",
+    "{count} people have shared their experience": "<strong>{count} نفر</strong> تجربه خود را {name} به اشتراک گذاشته اند",
+    "Register a comment":"ثبت نظر",
+    "Secretary" :"منشی",
+    "How to accept" :"نحوه پذیرش",
+    "Doctor" :"پزشک",
 };
