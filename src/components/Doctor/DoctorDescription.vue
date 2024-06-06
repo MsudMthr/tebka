@@ -41,8 +41,14 @@
             @click="viewMore = !viewMore"
         >
             {{ viewMore ? $t('View less') : $t('View more') }}
-            <i v-if="!viewMore" class="bi-chevron-down ms-2"></i>
-            <i v-else class="bi-chevron-up ms-2"></i>
+            <span class="d-none d-md-block">
+                <i v-if="!viewMore" class="bi-chevron-down ms-2"></i>
+                <i v-else class="bi-chevron-up ms-2"></i>
+            </span>
+            <span class="d-block d-md-none">
+                <i v-if="!viewMore" class="bi-chevron-right ms-2"></i>
+                <i v-else class="bi-chevron-left ms-2"></i>
+            </span>
         </button>
     </div>
 </div>
