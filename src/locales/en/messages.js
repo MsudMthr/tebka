@@ -51,4 +51,7 @@ export default {
     "How to accept" :"How to accept",
     "Doctor" :"Doctor",
     "View all comments" :"View all comments",
+    "Rules" : "Rules",
+    "Turn ratings" : "Turn ratings",
+    "View the rules" : "View the rules"
 };

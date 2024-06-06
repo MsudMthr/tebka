@@ -51,4 +51,7 @@ export default {
     "How to accept" :"نحوه پذیرش",
     "Doctor" :"پزشک",
     "View all comments" :"مشاهده همه نظرات",
+    "Rules" : "قوانین",
+    "Turn ratings" : "نوبت‌دهی",
+    "View the rules" : "مشاهده قوانین"
 };

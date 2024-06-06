@@ -51,4 +51,7 @@ export default {
     "How to accept" :"كيفية قبول",
     "Doctor" :"طبيب",
     "View all comments" :"عرض جميع التعليقات",
+    "Rules" : "قواعد",
+    "Turn ratings" : "بدوره التقييمات",
+    "View the rules" : "عرض القواعد"
 };
