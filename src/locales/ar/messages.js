@@ -50,5 +50,5 @@ export default {
     "Secretary" :"سكرتير",
     "How to accept" :"كيفية قبول",
     "Doctor" :"طبيب",
-
+    "View all comments" :"عرض جميع التعليقات",
 };

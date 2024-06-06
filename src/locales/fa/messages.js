@@ -50,4 +50,5 @@ export default {
     "Secretary" :"منشی",
     "How to accept" :"نحوه پذیرش",
     "Doctor" :"پزشک",
+    "View all comments" :"مشاهده همه نظرات",
 };

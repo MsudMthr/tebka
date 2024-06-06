@@ -50,4 +50,5 @@ export default {
     "Secretary" :"Secretary",
     "How to accept" :"How to accept",
     "Doctor" :"Doctor",
+    "View all comments" :"View all comments",
 };
