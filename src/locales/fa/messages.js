@@ -53,5 +53,6 @@ export default {
     "View all comments" :"مشاهده همه نظرات",
     "Rules" : "قوانین",
     "Turn ratings" : "نوبت‌دهی",
+    "Contacts" : "اطلاعات تماس",
     "View the rules" : "مشاهده قوانین"
 };

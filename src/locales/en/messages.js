@@ -53,5 +53,6 @@ export default {
     "View all comments" :"View all comments",
     "Rules" : "Rules",
     "Turn ratings" : "Turn ratings",
+    "Contacts" : "Contacts",
     "View the rules" : "View the rules"
 };

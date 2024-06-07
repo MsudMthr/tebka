@@ -53,5 +53,6 @@ export default {
     "View all comments" :"عرض جميع التعليقات",
     "Rules" : "قواعد",
     "Turn ratings" : "بدوره التقييمات",
+    "Contacts" : "جهات الاتصال",
     "View the rules" : "عرض القواعد"
 };
