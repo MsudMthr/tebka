@@ -1,6 +1,9 @@
 <template>
 <VLayout>
-    <div class="doctor-details container my-8 mt-md-4">
+
+<!--    todo => should fix scrollpy-->
+    <div class="doctor-details container my-8 mt-md-4" data-bs-offset="0" data-bs-smooth-scroll="true" data-bs-spy="scroll" data-bs-target="#tabs-list"
+         tabindex="0">
         <div class="row g-5">
 
             <div class="col-12 col-lg-8 px-0 p-md-3">
@@ -10,19 +13,19 @@
                     <DoctorSectionTabs/>
                 </div>
 
-                <div data-bs-offset="0" data-bs-smooth-scroll="true" data-bs-spy="scroll" data-bs-target="#tabs-list" tabindex="0">
+                <div>
 
-                    <div id="appointment" class="d-block d-lg-none mt-md-4 mt-0">
+                    <div id="appointment" class="d-block d-lg-none mt-md-4 mt-0 doctor-details-section">
                         <DoctorAppointment/>
                     </div>
 
-                    <DoctorDescription id="description" :doctor="doctor"/>
+                    <DoctorDescription id="description" :doctor="doctor" class="doctor-details-section"/>
 
-                    <DoctorContactInfo id="contact" :doctor="doctor"/>
+                    <DoctorContactInfo id="contact" :doctor="doctor" class="doctor-details-section"/>
 
-                    <DoctorComments id="comments" :doctor="doctor"/>
+                    <DoctorComments id="comments" :doctor="doctor" class="doctor-details-section"/>
 
-                    <DoctorRules id="rules" :doctor="doctor"/>
+                    <DoctorRules id="rules" :doctor="doctor" class="doctor-details-section"/>
                 </div>
             </div>
 

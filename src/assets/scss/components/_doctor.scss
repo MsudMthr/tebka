@@ -1,4 +1,12 @@
 .doctor-details {
+
+    .active-doctor-details {
+        color: #3454d1 !important;
+        border-bottom: 1.5px solid $primary;
+        border-radius: 0 !important;
+        padding-bottom: 10px;
+    }
+
     &__profile {
         &-image {
             width: 64px;
