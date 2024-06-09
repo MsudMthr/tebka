@@ -3,10 +3,15 @@ import {ref} from "vue";
 import {useLoading} from "@/composables/loading.composable";
 import {useDoctor as DoctorController} from "@/controller/DoctorController";
 
-export const useDoctor = defineStore('doctor-store', () => {
+export const useDoctorStore = defineStore('doctor-store', () => {
     const doctor = ref({});
     const {fetchDoctor} = DoctorController();
     const {endLoading, startLoading, isLoading} = useLoading();
+
+    const showReserveModal = ref(false);
+    function showReserveModalHandler() {
+        showReserveModal.value = true;
+    }
 
     function fetch() {
         startLoading();
@@ -22,6 +27,8 @@ export const useDoctor = defineStore('doctor-store', () => {
     return {
         fetch,
         isLoading,
+        showReserveModal,
+        showReserveModalHandler,
         doctor
     }
 })

@@ -41,6 +41,7 @@
             </div>
         </div>
     </div>
+    <DoctorReserveModal />
 </VLayout>
 </template>
 
@@ -56,11 +57,13 @@ import DoctorRules from "@/components/Doctor/DoctorRules.vue";
 import DoctorSectionTabs from "@/components/Doctor/DoctorSectionTabs.vue";
 
 // store
-import {useDoctor} from '@/stores/DoctorStore';
+import {useDoctorStore} from '@/stores/DoctorStore';
+import DoctorReserveModal from "@/components/Doctor/DoctorReserveModal.vue";
 
 
 export default {
     components: {
+        DoctorReserveModal,
         DoctorSectionTabs,
         DoctorRules,
         DoctorComments,
@@ -72,7 +75,7 @@ export default {
     },
 
     setup() {
-        const doctorStore = useDoctor();
+        const doctorStore = useDoctorStore();
 
         doctorStore.fetch()
 

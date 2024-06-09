@@ -223,4 +223,14 @@
             }
         }
     }
+
+    .doctor-visit-modal {
+        .modal-dialog {
+            max-width: 640px !important;
+        }
+
+        .modal-content {
+            padding: 32px 72px;
+        }
+    }
 }
