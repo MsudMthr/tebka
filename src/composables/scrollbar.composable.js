@@ -1,5 +1,3 @@
-// Utils
-import { IS_CLIENT } from '../../utils';
 
 // Dom
 import Manipulator from 'bootstrap/js/src/dom/manipulator';
@@ -8,10 +6,7 @@ import Manipulator from 'bootstrap/js/src/dom/manipulator';
  * @param {HTMLElement} target
  * @returns {Object}
  */
-export function useScrollBar(target) {
-    if (IS_CLIENT) {
-        target = document.body;
-    }
+export function useScrollBar(target= document.body) {
 
     function getWidth() {
         const documentWidth = document.documentElement.clientWidth;

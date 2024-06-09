@@ -86,7 +86,7 @@ import {
     EVENT_MODAL_SHOW,
     EVENT_MODAL_HIDE,
     EVENT_MODAL_TOGGLE
-} from '../directives/modal.directive';
+} from '@/directives/modal.directive';
 
 export default {
     name: 'VModal',
