@@ -54,5 +54,6 @@ export default {
     "Rules" : "قوانین",
     "Turn ratings" : "نوبت‌دهی",
     "Contacts" : "اطلاعات تماس",
-    "View the rules" : "مشاهده قوانین"
+    "View the rules" : "مشاهده قوانین",
+    "time to visit": "نوبت ویزیت"
 };

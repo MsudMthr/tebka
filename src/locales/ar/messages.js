@@ -54,5 +54,6 @@ export default {
     "Rules" : "قواعد",
     "Turn ratings" : "بدوره التقييمات",
     "Contacts" : "جهات الاتصال",
-    "View the rules" : "عرض القواعد"
+    "View the rules" : "عرض القواعد",
+    "time to visit": "وقت الزيارة"
 };
