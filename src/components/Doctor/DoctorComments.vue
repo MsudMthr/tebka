@@ -14,29 +14,29 @@
     <div class="row g-0 col-12 col-lg-8 justify-content-between align-items-center mb-4">
         <p class="fs-2 col-3">{{ $t('Doctor') }}</p>
         <div class="doctor-details__comments-progress progress col-6" style="height: 3px">
-            <div :aria-valuenow="doctor.rates.doctor" :style="`width: ${getWidthByRate(doctor.rates.doctor)}`" aria-valuemax="5"
+            <div :aria-valuenow="doctor.rates?.doctor" :style="`width: ${getWidthByRate(doctor.rates?.doctor)}`" aria-valuemax="5"
                  aria-valuemin="0" class="progress-bar" role="progressbar"></div>
         </div>
-        <p class="fs-2 col-3 text-end fw-medium">{{ doctor.rates.doctor }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span></p>
+        <p class="fs-2 col-3 text-end fw-medium">{{ doctor.rates?.doctor }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span></p>
     </div>
 
     <div class="row g-0 col-12 col-lg-8 justify-content-between align-items-center mb-4">
         <p class="fs-2 col-3">{{ $t('Secretary') }}</p>
         <div class="doctor-details__comments-progress progress col-6" style="height: 3px">
-            <div :aria-valuenow="doctor.rates.doctor" :style="`width: ${getWidthByRate(doctor.rates.secretary)}`" aria-valuemax="5"
+            <div :aria-valuenow="doctor.rates?.doctor" :style="`width: ${getWidthByRate(doctor.rates?.secretary)}`" aria-valuemax="5"
                  aria-valuemin="0" class="progress-bar" role="progressbar"></div>
         </div>
-        <p class="fs-2 col-3 text-end fw-medium">{{ doctor.rates.secretary }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span>
+        <p class="fs-2 col-3 text-end fw-medium">{{ doctor.rates?.secretary }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span>
         </p>
     </div>
 
     <div class="row g-0 col-12 col-lg-8 justify-content-between align-items-center mb-4">
         <p class="fs-2 col-3">{{ $t('How to accept') }}</p>
         <div class="doctor-details__comments-progress progress col-6" style="height: 3px">
-            <div :aria-valuenow="doctor.rates.doctor" :style="`width: ${getWidthByRate(doctor.rates.reception)}`" aria-valuemax="5"
+            <div :aria-valuenow="doctor.rates?.doctor" :style="`width: ${getWidthByRate(doctor.rates?.reception)}`" aria-valuemax="5"
                  aria-valuemin="0" class="progress-bar" role="progressbar"></div>
         </div>
-        <p class="fs-2 col-3 text-end fw-medium">{{ doctor.rates.reception }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span>
+        <p class="fs-2 col-3 text-end fw-medium">{{ doctor.rates?.reception }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span>
         </p>
     </div>
 
@@ -82,7 +82,7 @@
 
 <script>
 import {computed, defineComponent, ref} from 'vue'
-import useDoctor from "@/controller/DoctorController";
+import {useDoctorComments} from "@/controller/DoctorController";
 import DateTime from "@/utils/date-time";
 
 export default defineComponent({
@@ -96,7 +96,7 @@ export default defineComponent({
 
     setup() {
 
-        const {comments, totalComments} = useDoctor()
+        const {comments, totalComments} = useDoctorComments()
 
         const viewMore = ref(false)
 

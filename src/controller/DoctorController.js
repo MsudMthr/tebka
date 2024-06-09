@@ -1,6 +1,6 @@
 import {computed, ref} from 'vue';
 
-const useDoctor = () => {
+export const useDoctor = () => {
     const doctor = ref({
         name: 'علی اکبر سلطانیان',
         expertise: 'متخصص مغز و اعصاب و ستون فقرات',
@@ -63,12 +63,77 @@ const useDoctor = () => {
 
     const totalComments = computed(() => comments.value.length)
 
+    async function fetchDoctor() {
+        return Promise.resolve(doctor.value);
+    }
+
     return {
         doctor,
 
         comments,
-        totalComments
+        totalComments,
+        fetchDoctor
     }
 }
 
-export default useDoctor;
+export const useDoctorComments = () => {
+    const comments = ref([
+        {
+            name: 'محمودی',
+            created_at: '4-06-2024',
+            rate: '3',
+            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
+        },
+        {
+            name: 'test',
+            created_at: '4-06-2024',
+            rate: '3',
+            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
+        },
+        {
+            name: 'مطهری نیا',
+            created_at: '04-08-2020',
+            rate: '4',
+            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
+        },
+        {
+            name: 'محمودی',
+            created_at: '08-07-2005',
+            rate: '1',
+            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
+        },
+        {
+            name: 'test',
+            created_at: '4-06-2024',
+            rate: '3',
+            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
+        },
+        {
+            name: 'مطهری نیا',
+            created_at: '04-08-2020',
+            rate: '4',
+            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
+        },
+        {
+            name: 'محمودی',
+            created_at: '08-07-2005',
+            rate: '1',
+            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
+        },
+    ])
+
+    const totalComments = computed(() => comments.value.length)
+
+    function fetchComments() {
+        return Promise.resolve(comments.value);
+    }
+
+    return {
+        fetchComments,
+        comments,
+        totalComments,
+    }
+}
+
+
+
