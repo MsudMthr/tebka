@@ -1,4 +1,6 @@
-const SCREEN_WIDTH = window.screen.width;
+import { IS_CLIENT } from './index';
+
+const SCREEN_WIDTH = IS_CLIENT ? window.screen.width : 0;
 const BreakpointsWidth = {
     xs: 0,
     sm: 576,
