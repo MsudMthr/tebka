@@ -58,7 +58,7 @@ import DoctorSectionTabs from "@/components/doctor/DoctorSectionTabs.vue";
 
 // store
 import {useDoctorStore} from '@/stores/DoctorStore';
-import DoctorReserveModal from "@/components/doctor/DoctorReserveModal.vue";
+import DoctorReserveModal from "@/components/doctor/doctor-reserve/DoctorReserveModal.vue";
 
 
 export default {
