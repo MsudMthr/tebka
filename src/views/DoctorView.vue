@@ -47,18 +47,18 @@
 
 <script>
 // Components
-import DoctorAppointment from '@/components/Doctor/DoctorAppointment.vue';
+import DoctorAppointment from '@/components/doctor/DoctorAppointment.vue';
 import VLayout from '@/components/layout/VLayout.vue';
-import DoctorProfile from '@/components/Doctor/DoctorProfile.vue';
-import DoctorDescription from '@/components/Doctor/DoctorDescription.vue';
-import DoctorContactInfo from "@/components/Doctor/DoctorContactInfo.vue";
-import DoctorComments from "@/components/Doctor/DoctorComments.vue";
-import DoctorRules from "@/components/Doctor/DoctorRules.vue";
-import DoctorSectionTabs from "@/components/Doctor/DoctorSectionTabs.vue";
+import DoctorProfile from '@/components/doctor/DoctorProfile.vue';
+import DoctorDescription from '@/components/doctor/DoctorDescription.vue';
+import DoctorContactInfo from "@/components/doctor/DoctorContactInfo.vue";
+import DoctorComments from "@/components/doctor/DoctorComments.vue";
+import DoctorRules from "@/components/doctor/DoctorRules.vue";
+import DoctorSectionTabs from "@/components/doctor/DoctorSectionTabs.vue";
 
 // store
 import {useDoctorStore} from '@/stores/DoctorStore';
-import DoctorReserveModal from "@/components/Doctor/DoctorReserveModal.vue";
+import DoctorReserveModal from "@/components/doctor/DoctorReserveModal.vue";
 
 
 export default {
