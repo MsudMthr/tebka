@@ -227,6 +227,10 @@
     .doctor-visit-modal {
         .modal-dialog {
             max-width: 640px !important;
+
+            .modal-body {
+                padding: 0 !important;
+            }
         }
 
         .modal-content {
