@@ -51,7 +51,7 @@ class LanguageService {
      * @returns {Boolean}
      */
     static isRtl() {
-        return ['fa'].includes(this.get());
+        return ['fa', 'ar'].includes(this.get());
     }
 }
 
