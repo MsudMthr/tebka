@@ -56,6 +56,7 @@
                 }
 
             }
+
             &-button {
                 position: relative;
                 align-self: end;
@@ -80,7 +81,7 @@
 
     &__comments {
 
-        &-add-comment, &-content , &-title {
+        &-add-comment, &-content, &-title {
             font-size: 12px;
             line-height: 24px;
         }
@@ -92,7 +93,7 @@
             width: 100%;
         }
 
-        &-author , &-date {
+        &-author, &-date {
             font-size: 11px;
             line-height: 24px;
         }
@@ -144,6 +145,7 @@
                 }
 
             }
+
             &-button {
                 position: relative;
                 align-self: end;
@@ -153,6 +155,14 @@
     }
 
 }
+
+.doctor-times-calendar {
+    &-time {
+        border-radius: 8px;
+        border: solid 1px $grey-stroke;
+    }
+}
+
 
 @media screen and (min-width: 768px) {
     .doctor-details {
@@ -192,7 +202,7 @@
                 font-size: 14px;
             }
 
-            &-author , &-content {
+            &-author, &-content {
                 font-size: 14px;
             }
 
