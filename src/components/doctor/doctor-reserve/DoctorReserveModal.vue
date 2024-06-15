@@ -8,6 +8,12 @@
     <template #body>
         <DoctorReservePickDate />
     </template>
+
+    <template #footer>
+        <div class="d-flex align-self-end justify-content-end w-100 mt-0 mt-md-6 pt-0">
+            <button class="btn btn-primary py-2 col-12 col-md-5 body-1-md">{{$t('Confirm and continue')}}</button>
+        </div>
+    </template>
 </VModal>
 </template>
 

@@ -170,6 +170,11 @@
                 background: $primary;
                 color: $light;
             }
+
+            &-disable {
+                pointer-events: none;
+                opacity: .5;
+            }
         }
     }
 }
@@ -178,6 +183,10 @@
 
     .modal-body {
         padding: 0 !important;
+    }
+
+    .modal-footer {
+        border: none !important;
     }
 
 }
