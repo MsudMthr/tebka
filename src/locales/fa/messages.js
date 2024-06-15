@@ -57,5 +57,7 @@ export default {
     "View the rules" : "مشاهده قوانین",
     "time to visit": "نوبت ویزیت",
     "Confirm and continue":"تایید و ادامه",
-    "This day's appointments are full":"نوبت‌های این روز پر شده اند"
+    "Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed":"مراجعه کننده گرامی ساعت اعلامی صرفا ساعت حضور شما در مطب می باشد و با توجه به سایر ویزیتها ممکن است ویزیت شما با مقداری تاخیر صورت پذیرد.",
+    "This day's appointments are full":"نوبت‌های این روز پر شده اند",
+    "Reference details":"مشخصات مراجعه کننده"
 };

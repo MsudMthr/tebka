@@ -57,5 +57,7 @@ export default {
     "View the rules" : "View the rules",
     "time to visit": "time to visit",
     "Confirm and continue":"Confirm and continue",
+    "Reference details":"Reference details",
+    "Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed":"Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed",
     "This day's appointments are full":"This day's appointments are full"
 };

@@ -57,5 +57,7 @@ export default {
     "View the rules" : "عرض القواعد",
     "time to visit": "وقت الزيارة",
     "Confirm and continue":"تأكيد والمتابعة",
-    "This day's appointments are full":"مواعيد هذا اليوم ممتلئة"
+    "This day's appointments are full":"مواعيد هذا اليوم ممتلئة",
+    "Reference details":"التفاصيل المرجعية",
+    "Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed":"عزيزي العميل، الوقت المعلن هو فقط وقت تواجدك في المكتب، وبسبب زيارات أخرى قد تتأخر زيارتك.",
 };
