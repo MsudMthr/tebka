@@ -2,19 +2,11 @@
     <div class="calendar-slider card">
         <button
             type="button"
-            class="calendar-slider-arrow-start"
+            class="calendar-slider-arrow-start d-none d-md-block"
             aria-label="Go Prev"
             @click="scrollRight"
         >
             <i class="bi bi-chevron-left"></i>
-
-<!--            <svg-->
-<!--                width="24"-->
-<!--                height="24"-->
-<!--                viewBox="0 0 24 24"-->
-<!--            >-->
-<!--                <path stroke="#727272" stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6"/>-->
-<!--            </svg>-->
         </button>
 
         <div
@@ -27,20 +19,11 @@
 
         <button
             type="button"
-            class="calendar-slider-arrow-end"
+            class="calendar-slider-arrow-end d-none d-md-block"
             aria-label="Go Next"
             @click="scrollLeft"
         >
             <i class="bi bi-chevron-right"></i>
-
-<!--            <svg-->
-<!--                width="24"-->
-<!--                height="24"-->
-<!--                fill="none"-->
-<!--                viewBox="0 0 24 24"-->
-<!--            >-->
-<!--                <path stroke="#727272" stroke-linecap="round" stroke-linejoin="round" d="m15 18-6-6 6-6"/>-->
-<!--            </svg>-->
         </button>
     </div>
 </template>

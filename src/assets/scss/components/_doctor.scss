@@ -157,10 +157,29 @@
 }
 
 .doctor-times-calendar {
-    &-time {
-        border-radius: 8px;
-        border: solid 1px $grey-stroke;
+
+    &__time-container {
+        width: 25%;
+
+        &__content {
+            border-radius: 8px;
+            border: solid 1px $grey-stroke;
+            cursor: pointer;
+
+            &-selected {
+                background: $primary;
+                color: $light;
+            }
+        }
     }
+}
+
+.doctor-visit-modal {
+
+    .modal-body {
+        padding: 0 !important;
+    }
+
 }
 
 
@@ -237,14 +256,25 @@
     .doctor-visit-modal {
         .modal-dialog {
             max-width: 640px !important;
-
-            .modal-body {
-                padding: 0 !important;
-            }
         }
 
         .modal-content {
             padding: 32px 72px;
+
+        }
+
+        .modal-body {
+            padding: 0 !important;
+        }
+
+    }
+
+
+    .doctor-times-calendar {
+        &__time-container {
+            width: 20%;
         }
     }
 }
+
+
