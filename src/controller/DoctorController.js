@@ -1,4 +1,4 @@
-import {computed, ref} from 'vue';
+import {computed, reactive, ref} from 'vue';
 
 export const useDoctor = () => {
     const doctor = ref({
@@ -86,5 +86,430 @@ export const useDoctorComments = () => {
     }
 }
 
+export const useDoctorAppointment = () => {
+    const items = [
+        {
+            date: '2024-06-10',
+            value: '2024-06-10',
+            times: [
+                {
+                    disable: false,
+                    time: '11:00'
+                },
+                {
+                    disable: false,
+                    time: '11:30'
+                },
+                {
+                    disable: false,
+                    time: '12:00'
+                },
+                {
+                    disable: false,
+                    time: '12:30'
+                },
+                {
+                    disable: false,
+                    time: '13:00'
+                },
+                {
+                    disable: false,
+                    time: '13:30'
+                },
+                {
+                    disable: false,
+                    time: '14:00'
+                },
+                {
+                    disable: false,
+                    time: '14:30'
+                },
+                {
+                    disable: false,
+                    time: '15:00'
+                },
+                {
+                    disable: false,
+                    time: '15:30'
+                },
+            ]
+        },
+        {
+            date: '2024-06-11',
+            value: '2024-06-11',
+            times: [
+                {
+                    disable: false,
+                    time: '11:00'
+                },
+                {
+                    disable: false,
+                    time: '11:30'
+                },
+                {
+                    disable: false,
+                    time: '12:00'
+                },
+                {
+                    disable: false,
+                    time: '12:30'
+                },
+                {
+                    disable: false,
+                    time: '13:00'
+                },
+                {
+                    disable: false,
+                    time: '13:30'
+                },
+                {
+                    disable: false,
+                    time: '14:00'
+                },
+                {
+                    disable: false,
+                    time: '14:30'
+                },
+                {
+                    disable: false,
+                    time: '15:00'
+                },
+                {
+                    disable: false,
+                    time: '17:00'
+                },
+                {
+                    disable: false,
+                    time: '17:30'
+                },
+                {
+                    disable: false,
+                    time: '18:30'
+                },
+            ]
+        },
+        {
+            date: '2024-06-12',
+            value: '2024-06-12',
+            times: [
+                {
+                    disable: false,
+                    time: '11:00'
+                },
+                {
+                    disable: false,
+                    time: '11:30'
+                },
+                {
+                    disable: false,
+                    time: '12:00'
+                },
+                {
+                    disable: false,
+                    time: '12:30'
+                },
+                {
+                    disable: false,
+                    time: '15:00'
+                },
+                {
+                    disable: false,
+                    time: '15:30'
+                },
+                {
+                    disable: false,
+                    time: '16:00'
+                },
+                {
+                    disable: false,
+                    time: '16:30'
+                },
+                {
+                    disable: false,
+                    time: '17:00'
+                },
+                {
+                    disable: false,
+                    time: '17:30'
+                },
+                {
+                    disable: false,
+                    time: '18:30'
+                },
+            ]
+        },
+        {
+            date: '2024-06-13',
+            value: '2024-06-13',
+            times: [
+                {
+                    disable: false,
+                    time: '11:00'
+                },
+                {
+                    disable: false,
+                    time: '11:30'
+                },
+                {
+                    disable: false,
+                    time: '12:00'
+                },
+                {
+                    disable: false,
+                    time: '12:30'
+                },
+                {
+                    disable: false,
+                    time: '16:30'
+                },
+                {
+                    disable: false,
+                    time: '17:00'
+                },
+                {
+                    disable: false,
+                    time: '17:30'
+                },
+                {
+                    disable: false,
+                    time: '18:30'
+                },
+            ]
+        },
+        {
+            date: '2024-06-14',
+            value: '2024-06-14',
+            times: [
+                {
+                    disable: false,
+                    time: '11:00'
+                },
+                {
+                    disable: false,
+                    time: '11:30'
+                },
+                {
+                    disable: false,
+                    time: '12:00'
+                },
+                {
+                    disable: false,
+                    time: '12:30'
+                },
+                {
+                    disable: false,
+                    time: '13:00'
+                },
+                {
+                    disable: false,
+                    time: '13:30'
+                },
+                {
+                    disable: false,
+                    time: '14:00'
+                },
+                {
+                    disable: false,
+                    time: '14:30'
+                },
+                {
+                    disable: false,
+                    time: '15:00'
+                },
+                {
+                    disable: false,
+                    time: '16:30'
+                },
+                {
+                    disable: false,
+                    time: '17:00'
+                },
+                {
+                    disable: false,
+                    time: '17:30'
+                },
+                {
+                    disable: false,
+                    time: '18:30'
+                },
+            ]
+        },
+        {
+            date: '2024-06-15',
+            value: '2024-06-15',
+            times: [
+                {
+                    disable: false,
+                    time: '11:00'
+                },
+                {
+                    disable: false,
+                    time: '11:30'
+                },
+                {
+                    disable: false,
+                    time: '12:00'
+                },
+                {
+                    disable: false,
+                    time: '12:30'
+                },
+                {
+                    disable: false,
+                    time: '13:00'
+                },
+                {
+                    disable: false,
+                    time: '13:30'
+                },
+                {
+                    disable: false,
+                    time: '15:30'
+                },
+                {
+                    disable: false,
+                    time: '16:00'
+                },
+                {
+                    disable: false,
+                    time: '16:30'
+                },
+                {
+                    disable: false,
+                    time: '17:00'
+                },
+                {
+                    disable: false,
+                    time: '17:30'
+                },
+                {
+                    disable: false,
+                    time: '18:30'
+                },
+            ]
+        },
+        {
+            date: '2024-06-16',
+            value: '2024-06-16',
+            times: [
+                {
+                    disable: true,
+                    time: '11:00'
+                },
+                {
+                    disable: true,
+                    time: '11:30'
+                },
+                {
+                    disable: true,
+                    time: '12:00'
+                },
+                {
+                    disable: true,
+                    time: '12:30'
+                },
+                {
+                    disable: true,
+                    time: '13:00'
+                },
+                {
+                    disable: true,
+                    time: '13:30'
+                },
+                {
+                    disable: true,
+                    time: '15:30'
+                },
+                {
+                    disable: true,
+                    time: '16:00'
+                },
+                {
+                    disable: true,
+                    time: '16:30'
+                },
+                {
+                    disable: true,
+                    time: '17:00'
+                },
+                {
+                    disable: true,
+                    time: '17:30'
+                },
+                {
+                    disable: true,
+                    time: '18:30'
+                },
+            ]
+        },
+        {
+            date: '2024-06-17',
+            value: '2024-06-17',
+            disable: true,
+            times: [
+                {
+                    disable: false,
+                    time: '11:00'
+                },
+                {
+                    disable: false,
+                    time: '11:30'
+                },
+                {
+                    disable: false,
+                    time: '12:00'
+                },
+                {
+                    disable: false,
+                    time: '12:30'
+                },
+                {
+                    disable: false,
+                    time: '13:00'
+                },
+                {
+                    disable: false,
+                    time: '13:30'
+                },
+                {
+                    disable: false,
+                    time: '15:30'
+                },
+                {
+                    disable: false,
+                    time: '16:00'
+                },
+                {
+                    disable: false,
+                    time: '16:30'
+                },
+                {
+                    disable: false,
+                    time: '17:00'
+                },
+                {
+                    disable: false,
+                    time: '17:30'
+                },
+                {
+                    disable: false,
+                    time: '18:30'
+                },
+            ]
+        },
+
+    ]
+
+    const formData = ref({
+        national_code: undefined,
+        full_name: undefined,
+        phone_number: undefined
+    })
+
+    return {
+        items,
+        formData
+    }
+}
 
 

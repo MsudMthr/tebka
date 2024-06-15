@@ -1,41 +1,101 @@
 <template>
-<VModal id="doctor-visit-modal" class="doctor-visit-modal" v-model:show="doctorStore.showReserveModal">
-  <template #title>
-    <div class="fw-medium text-dark mb-1 mb-md-2">{{$t('time to visit')}} {{$t('doctor')}} {{doctorStore.doctor.name}}</div>
-    <div class="fw-medium text-gray">{{doctorStore.doctor.expertise}}</div>
-  </template>
+<VForm>
+    <VModal
+        v-model:show="doctorStore.showReserveModal"
+        id="doctor-visit-modal"
+        class="doctor-visit-modal"
+        @hide="step = 1"
+    >
+        <template #title>
+            <div class="fw-medium text-dark mb-1 mb-md-2">{{ $t('time to visit') }} {{ $t('doctor') }} {{ doctorStore.doctor.name }}</div>
+            <div class="fw-medium text-gray">{{ modalSubTitle }}</div>
+        </template>
 
-    <template #body>
-        <DoctorReservePickDate />
-    </template>
+        <template #body>
+            <component
+                :is="appointmentComponent"
+                v-model:dayAppointment="dayAppointment"
+                v-model:timeAppointment="timeAppointment"
+                v-model:formData="formData"
+            />
+        </template>
 
-    <template #footer>
-        <div class="d-flex align-self-end justify-content-end w-100 mt-0 mt-md-6 pt-0">
-            <button class="btn btn-primary py-2 col-12 col-md-5 body-1-md">{{$t('Confirm and continue')}}</button>
-        </div>
-    </template>
-</VModal>
+        <template #footer>
+            <div class="d-flex align-self-end justify-content-end w-100 mt-0 mt-md-6 pt-0">
+                <button
+                    type="button"
+                    @click="step += 1"
+                    class="btn btn-primary py-2 col-12 col-md-5 body-1-md"
+                    :disabled="!dayAppointment || !timeAppointment"
+                >
+                    {{ $t('Confirm and continue') }}
+                </button>
+            </div>
+        </template>
+    </VModal>
+</VForm>
 </template>
 
 <script>
 import VModal from "@/components/VModal.vue";
 import {useDoctorStore} from "@/stores/DoctorStore";
 import DoctorReservePickDate from "@/components/doctor/doctor-reserve/DoctorReservePickDate.vue";
+import DoctorVisitorDetailsForm from "@/components/doctor/doctor-reserve/DoctorVisitorDetailsForm.vue";
+import {computed, ref, watch} from "vue";
+import DateTime from "@/utils/date-time";
+import VForm from "@/components/form/VForm.vue";
+import {useDoctorAppointment} from "@/controller/DoctorController";
 
 export default {
     name: "DoctorReserveModal",
 
-    components: {DoctorReservePickDate, VModal},
+    components: {VForm, DoctorReservePickDate, DoctorVisitorDetailsForm, VModal},
 
     emits: ['update:modelValue'],
 
     setup() {
+        const doctorStore = useDoctorStore()
+        const dayAppointment = ref(DateTime.today().gregorian().format('yyyy-MM-dd'))
+        const timeAppointment = ref(undefined)
+        const {formData} = useDoctorAppointment()
 
-      const doctorStore = useDoctorStore()
-      console.log(doctorStore)
-      return {
-        doctorStore
-      }
+        const step = ref(1);
+        const appointmentComponent = computed(() => {
+            const components = {
+                1: 'DoctorReservePickDate',
+                2: 'DoctorVisitorDetailsForm',
+            }
+
+            return components[step.value]
+        })
+
+        // eslint-disable-next-line vue/return-in-computed-property
+        const modalSubTitle = computed(() => {
+            switch (step.value) {
+                case 1:
+                    return doctorStore.doctor.expertise;
+                case 2:
+                    return DateTime.make().gregorian().parse('yyyy-MM-dd', dayAppointment.value).jalali().format('dddd dd MMMM') + ' - ' + timeAppointment.value
+            }
+        })
+
+        watch(() => dayAppointment.value, () => {
+            timeAppointment.value = undefined
+        })
+
+        return {
+            doctorStore,
+
+            appointmentComponent,
+
+            step,
+            modalSubTitle,
+
+            formData,
+            dayAppointment,
+            timeAppointment
+
+        }
     }
 
 }
