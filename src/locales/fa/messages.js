@@ -55,5 +55,7 @@ export default {
     "Turn ratings" : "نوبت‌دهی",
     "Contacts" : "اطلاعات تماس",
     "View the rules" : "مشاهده قوانین",
-    "time to visit": "نوبت ویزیت"
+    "time to visit": "نوبت ویزیت",
+    "Confirm and continue":"تایید و ادامه",
+    "This day's appointments are full":"نوبت‌های این روز پر شده اند"
 };

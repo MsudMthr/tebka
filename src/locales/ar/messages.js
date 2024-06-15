@@ -55,5 +55,7 @@ export default {
     "Turn ratings" : "بدوره التقييمات",
     "Contacts" : "جهات الاتصال",
     "View the rules" : "عرض القواعد",
-    "time to visit": "وقت الزيارة"
+    "time to visit": "وقت الزيارة",
+    "Confirm and continue":"تأكيد والمتابعة",
+    "This day's appointments are full":"مواعيد هذا اليوم ممتلئة"
 };

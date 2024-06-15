@@ -55,5 +55,7 @@ export default {
     "Turn ratings" : "Turn ratings",
     "Contacts" : "Contacts",
     "View the rules" : "View the rules",
-    "time to visit": "time to visit"
+    "time to visit": "time to visit",
+    "Confirm and continue":"Confirm and continue",
+    "This day's appointments are full":"This day's appointments are full"
 };
