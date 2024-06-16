@@ -59,5 +59,8 @@ export default {
     "Confirm and continue":"تأكيد والمتابعة",
     "This day's appointments are full":"مواعيد هذا اليوم ممتلئة",
     "Reference details":"التفاصيل المرجعية",
+    "national_code/passport":"الكود_الوطني/جواز السفر",
+    "first name and last name":"الاسم الأول والاسم الأخير",
+    "mobile":"هاتف",
     "Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed":"عزيزي العميل، الوقت المعلن هو فقط وقت تواجدك في المكتب، وبسبب زيارات أخرى قد تتأخر زيارتك.",
 };

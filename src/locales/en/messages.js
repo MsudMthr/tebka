@@ -58,6 +58,9 @@ export default {
     "time to visit": "time to visit",
     "Confirm and continue":"Confirm and continue",
     "Reference details":"Reference details",
+    "mobile":"mobile",
+    "national_code/passport":"national_code/passport",
+    "first name and last name":"first name and last name",
     "Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed":"Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed",
     "This day's appointments are full":"This day's appointments are full"
 };
