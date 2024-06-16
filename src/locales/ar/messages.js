@@ -62,5 +62,9 @@ export default {
     "national_code/passport":"الكود_الوطني/جواز السفر",
     "first name and last name":"الاسم الأول والاسم الأخير",
     "mobile":"هاتف",
+    "Please do not use vpn when paying":"يرجى عدم استخدام VPN عند الدفع.",
+    "important points":"نقاط مهمة",
+    "I read and accept all the rules and regulations of the site":"I read and accept all the rules and regulations of the site",
+    "After paying in the bank, do not close the page and do not disconnect your internet until the moment you return to the site, so that your payment does not face problems":"بعد الدفع في البنك لا تغلق الصفحة ولا تفصل الانترنت الخاص بك حتى لحظة عودتك للموقع حتى لا تواجه عملية الدفع مشاكل.",
     "Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed":"عزيزي العميل، الوقت المعلن هو فقط وقت تواجدك في المكتب، وبسبب زيارات أخرى قد تتأخر زيارتك.",
 };

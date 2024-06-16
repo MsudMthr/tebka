@@ -41,6 +41,7 @@ import VModal from "@/components/VModal.vue";
 import {useDoctorStore} from "@/stores/DoctorStore";
 import DoctorReservePickDate from "@/components/doctor/doctor-reserve/DoctorReservePickDate.vue";
 import DoctorVisitorDetailsForm from "@/components/doctor/doctor-reserve/DoctorVisitorDetailsForm.vue";
+import DoctorReserveRules from "@/components/doctor/doctor-reserve/DoctorReserveRules.vue";
 import {computed, ref, watch} from "vue";
 import DateTime from "@/utils/date-time";
 import VForm from "@/components/form/VForm.vue";
@@ -49,7 +50,7 @@ import {useDoctorAppointment} from "@/controller/DoctorController";
 export default {
     name: "DoctorReserveModal",
 
-    components: {VForm, DoctorReservePickDate, DoctorVisitorDetailsForm, VModal},
+    components: {VForm, DoctorReservePickDate, DoctorReserveRules, DoctorVisitorDetailsForm, VModal},
 
     emits: ['update:modelValue'],
 
@@ -59,11 +60,12 @@ export default {
         const timeAppointment = ref(undefined)
         const {formData} = useDoctorAppointment()
 
-        const step = ref(1);
+        const step = ref(3);
         const appointmentComponent = computed(() => {
             const components = {
                 1: 'DoctorReservePickDate',
                 2: 'DoctorVisitorDetailsForm',
+                3: 'DoctorReserveRules',
             }
 
             return components[step.value]
@@ -75,6 +77,7 @@ export default {
                 case 1:
                     return doctorStore.doctor.expertise;
                 case 2:
+                case 3:
                     return DateTime.make().gregorian().parse('yyyy-MM-dd', dayAppointment.value).jalali().format('dddd dd MMMM') + ' - ' + timeAppointment.value
             }
         })
@@ -84,7 +87,7 @@ export default {
         })
 
         function submit() {
-            if (step.value === 2 && (!formData.value.full_name || !formData.value.national_code || !formData.value.phone_number) ) return
+            if (step.value === 2 && (!formData.value.full_name || !formData.value.national_code || !formData.value.phone_number)) return
             step.value += 1;
         }
 
