@@ -24,7 +24,7 @@
             <div class="d-flex align-self-end justify-content-end w-100 mt-0 mt-md-6 pt-0">
                 <button
                     type="button"
-                    @click="step += 1"
+                    @click="submit"
                     class="btn btn-primary py-2 col-12 col-md-5 body-1-md"
                     :disabled="!dayAppointment || !timeAppointment"
                 >
@@ -83,8 +83,14 @@ export default {
             timeAppointment.value = undefined
         })
 
+        function submit() {
+            if (step.value === 2 && (!formData.value.full_name || !formData.value.national_code || !formData.value.phone_number) ) return
+            step.value += 1;
+        }
+
         return {
             doctorStore,
+            submit,
 
             appointmentComponent,
 
