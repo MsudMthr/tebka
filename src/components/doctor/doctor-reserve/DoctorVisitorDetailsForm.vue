@@ -1,5 +1,5 @@
 <template>
-<div class="pt-6">
+<div class="p-4 mt-2 pt-md-6 bg-white">
     <p class="body-1-md body-2 fw-medium mb-4">{{$t('Reference details')}}</p>
 
     <!-- Bind each VInput and handle updates with a single method -->

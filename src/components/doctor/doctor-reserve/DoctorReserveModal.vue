@@ -60,7 +60,7 @@ export default {
         const timeAppointment = ref(undefined)
         const {formData} = useDoctorAppointment()
 
-        const step = ref(3);
+        const step = ref(1);
         const appointmentComponent = computed(() => {
             const components = {
                 1: 'DoctorReservePickDate',
@@ -88,6 +88,10 @@ export default {
 
         function submit() {
             if (step.value === 2 && (!formData.value.full_name || !formData.value.national_code || !formData.value.phone_number)) return
+            if (step.value === 3) {
+                console.log('redirect to dargah')
+                return;
+            }
             step.value += 1;
         }
 

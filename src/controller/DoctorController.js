@@ -503,7 +503,8 @@ export const useDoctorAppointment = () => {
     const formData = ref({
         national_code: undefined,
         full_name: undefined,
-        phone_number: undefined
+        phone_number: undefined,
+        accept: false,
     })
 
     return {
