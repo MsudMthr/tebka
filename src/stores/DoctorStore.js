@@ -17,7 +17,10 @@ export const useDoctorStore = defineStore('doctor-store', () => {
         startLoading();
         return fetchDoctor()
             .then(response => {
-                doctor.value = response
+                console.log(response.value)
+                doctor.value = {
+                    ...response.value,
+                }
             })
             .finally(() => {
                 endLoading()

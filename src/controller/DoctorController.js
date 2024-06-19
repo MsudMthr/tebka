@@ -1,27 +1,59 @@
-import {computed, reactive, ref} from 'vue';
+import {computed, ref} from 'vue';
+import {useLoading} from "@/composables/loading.composable";
+import DoctorsService from "@/services/doctors.service";
 
 export const useDoctor = () => {
     const doctor = ref({
         name: 'علی اکبر سلطانیان',
         expertise: 'متخصص مغز و اعصاب و ستون فقرات',
         rate: '4.6',
-        image:'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0MoQrYbawqdVlieVCav3xX7c44OMf43K2A&s',
+        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0MoQrYbawqdVlieVCav3xX7c44OMf43K2A&s',
         phone: "۰۵۱ - ۳۸۴۴۵۶۷۸",
         mobile: '۰۹۰۲۵۵۵۵۵۶۷۸',
         address: 'مشهد، میدان بیمارستان امام رضا، ابتدای خیابان رازی، ساختمان پزشکان رازی (پارسیان)، طبقه 3، واحد ۳۰',
-        rates:{
+        rates: {
             doctor: 4.3,
             secretary: 4,
             reception: 4
         }
     })
+    const {endLoading, startLoading, isLoading} = useLoading();
 
     async function fetchDoctor() {
-        return Promise.resolve(doctor.value);
+        startLoading();
+
+        const params = {
+            id: '1'
+        };
+
+        return DoctorsService.show(params)
+            .then(response => {
+                doctor.value = {
+                    ...response.data.value.doctor,
+                    name: 'علی اکبر سلطانیان',
+                    expertise: 'متخصص مغز و اعصاب و ستون فقرات',
+                    rate: '4.6',
+                    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0MoQrYbawqdVlieVCav3xX7c44OMf43K2A&s',
+                    phone: "۰۵۱ - ۳۸۴۴۵۶۷۸",
+                    mobile: '۰۹۰۲۵۵۵۵۵۶۷۸',
+                    address: 'مشهد، میدان بیمارستان امام رضا، ابتدای خیابان رازی، ساختمان پزشکان رازی (پارسیان)، طبقه 3، واحد ۳۰',
+                    rates: {
+                        doctor: 4.3,
+                        secretary: 4,
+                        reception: 4
+                    }
+                }
+                return doctor;
+            })
+            .finally(() => {
+                endLoading();
+            })
     }
 
     return {
         doctor,
+
+        isLoading,
 
         fetchDoctor
     }
