@@ -2,14 +2,13 @@
 <div class="doctor-details__contact mt-4 card border-0 p-4">
     <h1 class="doctor-details__contact-title mb-4">
         {{ $t('Office address and phone number') }}
-        {{ $t('doctor') }}
-        {{ doctor.name }}
+        {{ doctor.firstname }} {{ doctor.lastname }}
     </h1>
 
     <div class="d-flex fs-3 text-gray mb-4">
         <p class="fw-medium">{{ $t('Phone') }}:</p>
-        <p dir="ltr" class="ms-1 me-8">{{doctor.phone}}</p>
-        <p class="">{{doctor.mobile}}</p>
+        <p dir="ltr" class="ms-1 me-8">{{doctor.cellphone}}</p>
+<!--        <p class="">{{doctor.mobile}}</p>-->
     </div>
     <div class="d-flex fs-3 text-gray mb-4">
         <p class="fw-medium">{{$t('Address')}}:</p>

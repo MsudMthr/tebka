@@ -4,7 +4,7 @@
         {{ $t('Rules') }}
         {{ $t('Turn ratings') }}
         {{ $t('doctor') }}
-        {{ doctor.name }}
+        {{ doctor.firstname }} {{ doctor.lastname }}
     </h3>
 
     <div :class="[ `doctor-details__rules-content--text-${viewMore ? 'open' : 'close'}`]">
