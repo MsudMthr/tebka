@@ -1,7 +1,7 @@
 import {defineStore} from "pinia";
 import {ref} from "vue";
 import {useLoading} from "@/composables/loading.composable";
-import {useDoctor as DoctorController} from "@/controller/DoctorController";
+import {useDoctor as DoctorController, useDoctorAppointment} from "@/controller/DoctorController";
 
 export const useDoctorStore = defineStore('doctor-store', () => {
     const doctor = ref({});

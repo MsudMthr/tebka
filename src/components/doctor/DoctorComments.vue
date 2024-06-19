@@ -14,29 +14,29 @@
     <div class="row g-0 col-12 col-lg-8 justify-content-between align-items-center mb-4">
         <p class="fs-2 col-3">{{ $t('Doctor') }}</p>
         <div class="doctor-details__comments-progress progress col-6" style="height: 3px">
-            <div :aria-valuenow="doctor.rates.doctor" :style="`width: ${getWidthByRate(doctor.rates.doctor)}`" aria-valuemax="5"
+            <div :aria-valuenow="doctorRate" :style="`width: ${getWidthByRate(doctorRate)}`" aria-valuemax="5"
                  aria-valuemin="0" class="progress-bar" role="progressbar"></div>
         </div>
-        <p class="fs-2 col-3 text-end fw-medium">{{ doctor.rates.doctor }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span></p>
+        <p class="fs-2 col-3 text-end fw-medium">{{ doctorRate }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span></p>
     </div>
 
     <div class="row g-0 col-12 col-lg-8 justify-content-between align-items-center mb-4">
         <p class="fs-2 col-3">{{ $t('Secretary') }}</p>
         <div class="doctor-details__comments-progress progress col-6" style="height: 3px">
-            <div :aria-valuenow="doctor.rates.doctor" :style="`width: ${getWidthByRate(doctor.rates.secretary)}`" aria-valuemax="5"
+            <div :aria-valuenow="secretaryRate" :style="`width: ${getWidthByRate(secretaryRate)}`" aria-valuemax="5"
                  aria-valuemin="0" class="progress-bar" role="progressbar"></div>
         </div>
-        <p class="fs-2 col-3 text-end fw-medium">{{ doctor.rates.secretary }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span>
+        <p class="fs-2 col-3 text-end fw-medium">{{ secretaryRate }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span>
         </p>
     </div>
 
     <div class="row g-0 col-12 col-lg-8 justify-content-between align-items-center mb-4">
         <p class="fs-2 col-3">{{ $t('How to accept') }}</p>
         <div class="doctor-details__comments-progress progress col-6" style="height: 3px">
-            <div :aria-valuenow="doctor.rates.doctor" :style="`width: ${getWidthByRate(doctor.rates.reception)}`" aria-valuemax="5"
+            <div :aria-valuenow="acceptRate" :style="`width: ${getWidthByRate(acceptRate)}`" aria-valuemax="5"
                  aria-valuemin="0" class="progress-bar" role="progressbar"></div>
         </div>
-        <p class="fs-2 col-3 text-end fw-medium">{{ doctor.rates.reception }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span>
+        <p class="fs-2 col-3 text-end fw-medium">{{ acceptRate }} <span class="text-gray fw-normal">{{ $t('From') }} 5</span>
         </p>
     </div>
 
@@ -45,9 +45,9 @@
         <div class="doctor-details__comments-divider"></div>
 
         <div class="d-flex justify-content-between align-items-center">
-            <p class="doctor-details__comments-author">{{ comment.name }}</p>
+            <p class="doctor-details__comments-author">{{ comment.full_name }}</p>
             <div class="doctor-details__comments-rate align-self-start d-flex align-items-center">
-                <p class="me-1">{{ comment.rate }}</p>
+                <p class="me-1">{{ comment.doctor_rate }}</p>
                 <i class="bi-star-fill text-warning"></i>
             </div>
         </div>
@@ -55,7 +55,7 @@
             {{ getCommentDate(comment.created_at) }}
         </div>
         <div class="doctor-details__comments-content mt-2">
-            {{ comment.comment }}
+            {{ comment.text }}
         </div>
 
     </div>
@@ -96,9 +96,11 @@ export default defineComponent({
 
     setup() {
 
-        const {comments, totalComments} = useDoctorComments()
+        const {comments, totalComments, fetchComments, acceptRate, doctorRate, secretaryRate} = useDoctorComments()
 
         const viewMore = ref(false)
+
+        fetchComments()
 
         function getWidthByRate(rate, max_rate = 5, min_rate = 0) {
             let clamped_rate = Math.max(min_rate, Math.min(rate, max_rate));
@@ -117,7 +119,7 @@ export default defineComponent({
 
 
         function getCommentDate(date) {
-            return DateTime.make().gregorian().parse('dd-MM-yyyy', date).jalali().format('dd MMMM yyyy');
+            return DateTime.make().gregorian().parse('yyyy-MM-dd', date).jalali().format('dd MMMM yyyy');
         }
 
         return {
@@ -125,6 +127,10 @@ export default defineComponent({
             comments,
             viewMore,
             showComments,
+
+            acceptRate,
+            secretaryRate,
+            doctorRate,
 
             getWidthByRate,
             getCommentDate

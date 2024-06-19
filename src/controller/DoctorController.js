@@ -1,50 +1,61 @@
 import {computed, ref} from 'vue';
 import {useLoading} from "@/composables/loading.composable";
 import DoctorsService from "@/services/doctors.service";
+import CommentsService from "@/services/comments.service";
+import OfficeService from "@/services/office.service";
 
 export const useDoctor = () => {
-    const doctor = ref({
-        name: 'علی اکبر سلطانیان',
-        expertise: 'متخصص مغز و اعصاب و ستون فقرات',
-        rate: '4.6',
-        image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0MoQrYbawqdVlieVCav3xX7c44OMf43K2A&s',
-        phone: "۰۵۱ - ۳۸۴۴۵۶۷۸",
-        mobile: '۰۹۰۲۵۵۵۵۵۶۷۸',
-        address: 'مشهد، میدان بیمارستان امام رضا، ابتدای خیابان رازی، ساختمان پزشکان رازی (پارسیان)، طبقه 3، واحد ۳۰',
-        rates: {
-            doctor: 4.3,
-            secretary: 4,
-            reception: 4
-        }
-    })
+    const doctor = ref({})
     const {endLoading, startLoading, isLoading} = useLoading();
+    const doctorId = 194;
 
-    async function fetchDoctor() {
-        startLoading();
-
+    function fetchDoctorDetails() {
         const params = {
-            id: '1'
+            id: doctorId
         };
 
         return DoctorsService.show(params)
             .then(response => {
-                doctor.value = {
-                    ...response.data.value.doctor,
-                    name: 'علی اکبر سلطانیان',
-                    expertise: 'متخصص مغز و اعصاب و ستون فقرات',
-                    rate: '4.6',
-                    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0MoQrYbawqdVlieVCav3xX7c44OMf43K2A&s',
-                    phone: "۰۵۱ - ۳۸۴۴۵۶۷۸",
-                    mobile: '۰۹۰۲۵۵۵۵۵۶۷۸',
-                    address: 'مشهد، میدان بیمارستان امام رضا، ابتدای خیابان رازی، ساختمان پزشکان رازی (پارسیان)، طبقه 3، واحد ۳۰',
-                    rates: {
-                        doctor: 4.3,
-                        secretary: 4,
-                        reception: 4
-                    }
-                }
-                return doctor;
+                return response.data.value.doctor;
             })
+    }
+
+    function fetchOfficeDetails() {
+        const params = {
+            doctor_id: doctorId
+        };
+
+        return OfficeService.show(params)
+            .then(response => {
+                return response.data.value.office;
+            })
+    }
+
+    async function fetchDoctor() {
+        startLoading();
+
+
+        return Promise.all([
+            fetchDoctorDetails(), fetchOfficeDetails()
+        ]).then(([doctorDetails, officeDetails]) => {
+            doctor.value = {
+                ...doctorDetails,
+                ...officeDetails,
+                name: 'علی اکبر سلطانیان',
+                expertise: 'متخصص مغز و اعصاب و ستون فقرات',
+                rate: '4.6',
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0MoQrYbawqdVlieVCav3xX7c44OMf43K2A&s',
+                phone: "۰۵۱ - ۳۸۴۴۵۶۷۸",
+                mobile: '۰۹۰۲۵۵۵۵۵۶۷۸',
+                rates: {
+                    doctor: 4.3,
+                    secretary: 4,
+                    reception: 4
+                }
+            }
+
+            return doctor;
+        })
             .finally(() => {
                 endLoading();
             })
@@ -60,65 +71,71 @@ export const useDoctor = () => {
 }
 
 export const useDoctorComments = () => {
-    const comments = ref([
-        {
-            name: 'محمودی',
-            created_at: '4-06-2024',
-            rate: '3',
-            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
-        },
-        {
-            name: 'test',
-            created_at: '4-06-2024',
-            rate: '3',
-            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
-        },
-        {
-            name: 'مطهری نیا',
-            created_at: '04-08-2020',
-            rate: '4',
-            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
-        },
-        {
-            name: 'محمودی',
-            created_at: '08-07-2005',
-            rate: '1',
-            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
-        },
-        {
-            name: 'test',
-            created_at: '4-06-2024',
-            rate: '3',
-            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
-        },
-        {
-            name: 'مطهری نیا',
-            created_at: '04-08-2020',
-            rate: '4',
-            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
-        },
-        {
-            name: 'محمودی',
-            created_at: '08-07-2005',
-            rate: '1',
-            comment: 'دانش و تشخیص بیماری آقای دکتر بسیار درجه یک هست. و همچنین اخلاق حرفه ای ایشان باعث دلگرمی و آرامش بیمار می شود.'
-        },
-    ])
+    const {endLoading, startLoading, isLoading} = useLoading();
+    const comments = ref([]);
 
-    const totalComments = computed(() => comments.value.length)
+    const totalComments = computed(() => comments.value.length);
+
+    const acceptRate = computed(() => {
+        if (totalComments.value === 0) return 0;
+
+        const totalRate = comments.value.reduce((rate, comment) => {
+            return rate + comment.accept_rate;
+        }, 0);
+
+        return totalRate / totalComments.value;
+    });
+
+    const doctorRate = computed(() => {
+        if (totalComments.value === 0) return 0;
+
+        const totalRate = comments.value.reduce((rate, comment) => {
+            return rate + comment.doctor_rate;
+        }, 0);
+
+        return totalRate / totalComments.value;
+    });
+
+    const secretaryRate = computed(() => {
+        const totalRate = comments.value.reduce((rate, comment) => {
+            return rate + comment.secretary_rate;
+        }, 0);
+
+        return totalRate / totalComments.value;
+    });
 
     function fetchComments() {
-        return Promise.resolve(comments.value);
+        startLoading();
+
+        const params = {
+            doctor_id: '194'
+        }
+        return CommentsService.list(params)
+            .then(response => {
+                console.log(response)
+                comments.value = response.data.value.comments;
+                return comments
+            })
+            .finally(() => {
+                endLoading();
+            })
     }
 
     return {
         fetchComments,
         comments,
+
+        acceptRate,
+        secretaryRate,
+        doctorRate,
+
+        isLoading,
         totalComments,
     }
 }
 
 export const useDoctorAppointment = () => {
+    const {endLoading, startLoading, isLoading} = useLoading();
     const items = [
         {
             date: '2024-06-10',
@@ -532,6 +549,11 @@ export const useDoctorAppointment = () => {
 
     ]
 
+    function fetchAppointments() {
+        return null;
+
+    }
+
     const formData = ref({
         national_code: undefined,
         full_name: undefined,
@@ -541,6 +563,8 @@ export const useDoctorAppointment = () => {
 
     return {
         items,
+        fetchAppointments,
+        isLoading,
         formData
     }
 }

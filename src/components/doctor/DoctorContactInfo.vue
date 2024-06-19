@@ -7,16 +7,16 @@
 
     <div class="d-flex fs-3 text-gray mb-4">
         <p class="fw-medium">{{ $t('Phone') }}:</p>
-        <p dir="ltr" class="ms-1 me-8">{{doctor.cellphone}}</p>
-<!--        <p class="">{{doctor.mobile}}</p>-->
+        <p dir="ltr" class="ms-1 me-8">0{{doctor.cellphone}}</p>
+        <p class="">0{{doctor.phone1}}</p>
     </div>
     <div class="d-flex fs-3 text-gray mb-4">
         <p class="fw-medium">{{$t('Address')}}:</p>
         <p class="ms-1">{{doctor.address}}</p>
     </div>
     <div style="height:112px;">
-        <LMap ref="map" v-model:zoom="zoom" :center="latLng(35.715298, 51.404343)">
-            <LMarker :lat-lng="latLng(35.715298, 51.404343)"></LMarker>
+        <LMap ref="map" v-model:zoom="zoom" :center="latLng(doctor.location_y, doctor.location_x)">
+            <LMarker :lat-lng="latLng(doctor.location_y, doctor.location_x)"></LMarker>
             <LTileLayer
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 layer-type="base"
@@ -56,7 +56,7 @@ export default {
     },
 
     setup() {
-        const zoom = ref(10)
+        const zoom = ref(17)
         const map = ref()
 
         return {
