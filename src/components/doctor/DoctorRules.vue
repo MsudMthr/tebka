@@ -3,38 +3,11 @@
     <h3 class="doctor-details__rules-title fw-medium mb-4">
         {{ $t('Rules') }}
         {{ $t('Turn ratings') }}
-        {{ $t('doctor') }}
         {{ doctor.firstname }} {{ doctor.lastname }}
     </h3>
 
     <div :class="[ `doctor-details__rules-content--text-${viewMore ? 'open' : 'close'}`]">
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque earum eius rem totam voluptatibus? Amet animi aperiam
-            aspernatur assumenda dignissimos eaque esse est expedita fuga in maxime molestiae nam nesciunt possimus quas quia, sequi
-            tempore.
-            Consequuntur deserunt dolorum et fugit hic impedit laboriosam quos? Aut ipsum laboriosam nulla praesentium vero!
-        </p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque earum eius rem totam voluptatibus? Amet animi aperiam
-            aspernatur assumenda dignissimos eaque esse est expedita fuga in maxime molestiae nam nesciunt possimus quas quia, sequi
-            tempore.
-            Consequuntur deserunt dolorum et fugit hic impedit laboriosam quos? Aut ipsum laboriosam nulla praesentium vero!
-        </p>
-
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque earum eius rem totam voluptatibus? Amet animi aperiam
-            aspernatur assumenda dignissimos eaque esse est expedita fuga in maxime molestiae nam nesciunt possimus quas quia, sequi
-            tempore.
-            Consequuntur deserunt dolorum et fugit hic impedit laboriosam quos? Aut ipsum laboriosam nulla praesentium vero!
-        </p>
-
-        <ol>
-            <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores, laboriosam.</li>
-            <li>Ad commodi cupiditate dolore, eos libero quas quidem reiciendis. Molestiae?</li>
-            <li>A blanditiis dolores doloribus ea enim ipsum labore perferendis repellat?</li>
-            <li>Adipisci incidunt labore modi non perferendis quia quidem unde voluptas.</li>
-            <li>Amet consequatur ducimus eos facilis ipsa maxime porro quaerat voluptate?</li>
-        </ol>
+        <p v-for="rule of doctor.rules" v-html="rule.rule" class="mt-2 body-2 body-1-md" :key="rule.id"></p>
     </div>
 
     <div v-if="!viewMore" class="doctor-details__rules-content--text-overlay card border-0"></div>

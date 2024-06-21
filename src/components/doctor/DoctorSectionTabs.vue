@@ -1,5 +1,5 @@
 <template>
-<div id="tabs-list" class="d-flex flex-row pt-2 pb-0 card border-0 justify-content-around gap-2 text-center overflow-x-scroll border-bottom">
+<div id="tabs-list" class="d-flex flex-row pt-2 pb-0 card border-0 justify-content-around gap-2 text-center border-bottom">
     <a class="py-2 px-4  rounded text-decoration-none text-nowrap fs-2 fw-medium text-gray active-doctor-details" href="#appointment">{{$t('Turn ratings')}}</a>
     <a class="py-2 px-4  rounded text-decoration-none text-nowrap fs-2 fw-medium text-gray" href="#description">{{$t('Introduction')}}</a>
     <a class="py-2 px-4  rounded text-decoration-none text-nowrap fs-2 fw-medium text-gray" href="#contact">{{$t('Contacts')}}</a>

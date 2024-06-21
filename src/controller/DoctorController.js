@@ -3,15 +3,16 @@ import {useLoading} from "@/composables/loading.composable";
 import DoctorsService from "@/services/doctors.service";
 import CommentsService from "@/services/comments.service";
 import OfficeService from "@/services/office.service";
+import RulesService from "@/services/rules.service";
 
 export const useDoctor = () => {
     const doctor = ref({})
     const {endLoading, startLoading, isLoading} = useLoading();
     const doctorId = 194;
-
+    const doctorUserName = 'DrHakak'
     function fetchDoctorDetails() {
         const params = {
-            id: doctorId
+            username: doctorUserName
         };
 
         return DoctorsService.show(params)
@@ -20,9 +21,21 @@ export const useDoctor = () => {
             })
     }
 
+    function fetchDoctorRules() {
+        const params = {
+            username: doctorUserName
+        };
+
+        return RulesService.list(params)
+            .then(response => {
+                return response.data.value.rules;
+            })
+    }
+
     function fetchOfficeDetails() {
         const params = {
-            doctor_id: doctorId
+            doctor_id: doctorId,
+            username: doctorUserName
         };
 
         return OfficeService.show(params)
@@ -36,9 +49,12 @@ export const useDoctor = () => {
 
 
         return Promise.all([
-            fetchDoctorDetails(), fetchOfficeDetails()
-        ]).then(([doctorDetails, officeDetails]) => {
+            fetchDoctorDetails(), fetchOfficeDetails(), fetchDoctorRules()
+        ]).then(([doctorDetails, officeDetails, doctorRules]) => {
             doctor.value = {
+                rules: {
+                    ...doctorRules
+                },
                 ...doctorDetails,
                 ...officeDetails,
                 name: 'علی اکبر سلطانیان',
