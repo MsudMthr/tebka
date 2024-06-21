@@ -20,6 +20,13 @@ export default {
             (function() {
                 'use strict';
 
+                if (window.location.hash) {
+                    const element = document.querySelector(window.location.hash);
+                    if (element) {
+                        element.scrollIntoView({ behavior: 'smooth' });
+                    }
+                }
+
                 let section = document.querySelectorAll(".doctor-details-section");
                 let sections = {};
                 let i = 0;
@@ -28,7 +35,7 @@ export default {
                 });
 
                 window.onscroll = function() {
-                    let scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+                    let scrollPosition = (document.documentElement.scrollTop || document.body.scrollTop) + 50;
 
                     for (i in sections) {
                         if (sections[i] < scrollPosition) {
