@@ -37,14 +37,30 @@ export default {
                 window.onscroll = function() {
                     let scrollPosition = (document.documentElement.scrollTop || document.body.scrollTop) + 50;
 
-                    for (i in sections) {
-                        if (sections[i] < scrollPosition) {
-                            document.querySelector('.active-doctor-details').classList.remove('active-doctor-details');
-                            document.querySelector('a[href*=' + i + ']').classList.add('active-doctor-details');
+                    // Track the last section ID that was found to be in the view
+                    let currentSectionId = null;
+
+                    for (let id in sections) {
+                        if (sections[id] < scrollPosition) {
+                            currentSectionId = id;
                         }
                     }
 
-                };
+                    // If a section is found that matches the current scroll position
+                    if (currentSectionId) {
+                        // Remove the active class from the previously active element
+                        let previousActive = document.querySelector('.active-doctor-details');
+                        if (previousActive) {
+                            previousActive.classList.remove('active-doctor-details');
+                        }
+
+                        // Add the active class to the new active element
+                        let newActive = document.querySelector('a[href*=' + currentSectionId + ']');
+                        if (newActive) {
+                            newActive.classList.add('active-doctor-details');
+                        }
+                    }
+                }
             })();
         })
 
