@@ -74,6 +74,11 @@ export default {
             });
         }
 
+        window.formValidate = function () {
+            validate();
+            return isValid.value;
+        };
+
         return () => h(
             'form',
             { onSubmit: handleSubmit, onReset: resetValidation },

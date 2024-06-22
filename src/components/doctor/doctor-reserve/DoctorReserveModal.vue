@@ -1,5 +1,5 @@
 <template>
-<VForm>
+<VForm ref="form">
     <VModal
         v-model:show="doctorStore.showReserveModal"
         id="doctor-visit-modal"
@@ -26,7 +26,7 @@
                     type="button"
                     @click="submit"
                     class="btn btn-primary py-2 col-12 col-md-5 body-1-md"
-                    :disabled="!dayAppointment || !timeAppointment"
+                    :disabled="!dayAppointment || !timeAppointment || (step === 3 && !formData.accept)"
                 >
                     {{ $t('Confirm and continue') }}
                 </button>
@@ -71,11 +71,13 @@ export default {
             return components[step.value]
         })
 
+        const submitButtonType = ref('button')
+
         // eslint-disable-next-line vue/return-in-computed-property
         const modalSubTitle = computed(() => {
             switch (step.value) {
                 case 1:
-                    return doctorStore.doctor.expertise;
+                    return doctorStore.doctor.first_expertise;
                 case 2:
                 case 3:
                     return DateTime.make().gregorian().parse('yyyy-MM-dd', dayAppointment.value).jalali().format('dddd dd MMMM') + ' - ' + timeAppointment.value
@@ -85,21 +87,40 @@ export default {
         watch(() => dayAppointment.value, () => {
             timeAppointment.value = undefined
         })
+        const form = ref()
 
         function submit() {
-            if (step.value === 2 && (!formData.value.full_name || !formData.value.national_code || !formData.value.phone_number)) return
-            if (step.value === 3) {
-                console.log('redirect to dargah')
-                return;
+            switch (step.value) {
+                case 1:
+                    step.value += 1;
+                    break
+                case 2:
+                    const isValid = window.formValidate();
+                    if (isValid) {
+                        step.value += 1;
+                    }
+                    break
+                case 3:
+                    console.log('redirect to dargah')
+                    break
             }
-            step.value += 1;
         }
 
+        watch(() => step.value, (value) => {
+            console.log(submitButtonType, value)
+            if (value === 2) {
+                setTimeout(() => {
+                    submitButtonType.value = 'submit'
+                }, 100)
+            }
+        })
         return {
             doctorStore,
             submit,
 
             appointmentComponent,
+            form,
+            submitButtonType,
 
             step,
             modalSubTitle,

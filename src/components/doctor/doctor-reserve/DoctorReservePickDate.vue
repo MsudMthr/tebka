@@ -1,6 +1,7 @@
 <template>
 <div class="doctor-times-calendar d-flex flex-column h-100 pt-2 pt-md-6">
     <div class="bg-yellow text-black fw-medium body-2 body-1-md p-4 rounded">
+<!--         Todo -> change this text by api-->
         نوبتها هر روز راس ساعت 10 برای همان روز در هفته بعد (در صورت عدم تعطیلی آن روز) باز میگردد. پنجشنبه‌ها و جمعه نوبت‌دهی فعال نیست.
     </div>
 
@@ -53,7 +54,7 @@
 <script>
 import CalendarSlider from "@/components/calendar-slider/CalendarSlider.vue";
 import CalendarSliderItem from "@/components/calendar-slider/CalendarSliderItem.vue";
-import {computed, ref} from "vue";
+import {computed} from "vue";
 import DateTime from "@/utils/date-time";
 import {useDoctorAppointment} from "@/controller/DoctorController";
 
@@ -73,8 +74,6 @@ export default {
 
     setup(props) {
         const {items} = useDoctorAppointment()
-        // todo => set selected day to controller or store
-        const selectedTime = ref(undefined)
 
         const times = computed(() => {
             const [selectedDay] = items.filter(item => item.value === props.dayAppointment);
@@ -109,7 +108,6 @@ export default {
         })
 
         return {
-            selectedTime,
             items,
             times,
             getDayTitle,
