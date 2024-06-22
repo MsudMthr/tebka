@@ -68,8 +68,10 @@ export default {
     "This field is required!":"This field is required!",
     "This field should contain {number} digits":"This field should contain {number} digits",
     "The national code is not valid":"The national code is not valid",
+    "Toman":"Toman",
     "first name and last name":"first name and last name",
     "The mobile number is not correct":"The mobile number is not correct",
+    "The amount payable":"The amount payable",
     "Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed":"Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed",
     "This day's appointments are full":"This day's appointments are full"
 };

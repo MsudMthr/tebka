@@ -69,6 +69,8 @@ export default {
     "The national code is not valid":"کد ملی معتبر نمی باشد",
     "This field should contain {number} digits":"این فیلد می بایست شامل {number} رقم باشد",
     "The mobile number is not correct":"شماره موبایل صحیح نمی باشد",
+    "The amount payable":"مبلغ قابل پرداخت",
+    "Toman":"تومان",
     "mobile":"موبایل",
     "This field is required!":"این فیلد الزامی است!",
     "Reference details":"مشخصات مراجعه کننده"

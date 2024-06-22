@@ -1,4 +1,5 @@
-import { reflow, executeAfterTransition } from 'bootstrap/js/src/util';
+import {reflow, executeAfterTransition} from 'bootstrap/js/src/util';
+import {useI18n} from "vue-i18n";
 
 function hasOwnProperty(object, key) {
     return Object.prototype.hasOwnProperty.call(object, key);
@@ -111,6 +112,25 @@ function normalizeData(value) {
     return value;
 }
 
+const delimiterPrice = ',';
+
+const priceFormatter = (number) => {
+    // this dirty code write for iraq project
+        number = Number(number) && parseInt(Number(number) / 10);
+
+
+    if (isNaN(number)) return 'نامشخص';
+
+    number = String(number).replace(/./g, (currentChar, index, str) => {
+        if (number < 0 && index == 1) return currentChar;
+
+        return index && (currentChar !== '.') && ((str.length - index) % 3 === 0) ? (delimiterPrice + currentChar) : currentChar;
+    });
+
+    return number;
+};
+
+
 export {
     reflow,
     executeAfterTransition,
@@ -122,6 +142,7 @@ export {
     getUniqueId,
     resolveIteratee,
     keyBy,
+    priceFormatter,
     cachePromise,
     normalizeData
 };

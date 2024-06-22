@@ -21,7 +21,17 @@
         </template>
 
         <template #footer>
-            <div class="d-flex align-self-end justify-content-end w-100 mt-0 mt-md-6 pt-0">
+
+            <div
+                :class="[`justify-content-${ step === 3 ? 'between' : 'end'}`, 'd-flex flex-column flex-md-row align-items-center align-self-end align-self-auto w-100 mt-0 mt-md-6 pt-0']">
+                <div v-if="step === 3" class="d-flex justify-content-md-start justify-content-between w-100 mb-2 mb-md-0">
+                    <span class="body-1-md body-2 text-gray d-none d-md-block me-3">{{$t('The amount payable')}}</span>
+                    <span class="body-1-md body-2 text-black d-block d-md-none me-3">{{$t('The amount payable')}}</span>
+                    <div>
+                        <span class="fw-medium subtitle-3-md body-1 me-1">{{ priceFormatter(doctorStore.doctor.price) }}</span>
+                        <span class="body-2">{{$t('Toman')}}</span>
+                    </div>
+                </div>
                 <button
                     type="button"
                     @click="submit"
@@ -46,6 +56,7 @@ import {computed, ref, watch} from "vue";
 import DateTime from "@/utils/date-time";
 import VForm from "@/components/form/VForm.vue";
 import {useDoctorAppointment} from "@/controller/DoctorController";
+import {priceFormatter} from "@/utils";
 
 export default {
     name: "DoctorReserveModal",
@@ -60,7 +71,7 @@ export default {
         const timeAppointment = ref(undefined)
         const {formData} = useDoctorAppointment()
 
-        const step = ref(1);
+        const step = ref(3);
         const appointmentComponent = computed(() => {
             const components = {
                 1: 'DoctorReservePickDate',
@@ -127,7 +138,8 @@ export default {
 
             formData,
             dayAppointment,
-            timeAppointment
+            timeAppointment,
+            priceFormatter
 
         }
     }

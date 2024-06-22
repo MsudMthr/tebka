@@ -66,6 +66,8 @@ export default {
     "important points":"نقاط مهمة",
     "Terms and Conditions" : "الأحكام والشروط",
     "This field is required!":"هذه الخانة مطلوبه!",
+    "Toman":"تومان",
+    "The amount payable":"المبلغ المستحق",
     "The mobile number is not correct":"رقم الجوال غير صحيح",
     "The national code is not valid":"الرمز الوطني غير صالح",
     "This field should contain {number} digits":"يجب أن يحتوي هذا الحقل على {number} رقمًا",

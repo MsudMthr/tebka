@@ -60,11 +60,8 @@ export const useDoctor = () => {
                 },
                 ...doctorDetails,
                 ...officeDetails,
-                name: 'علی اکبر سلطانیان',
-                expertise: 'متخصص مغز و اعصاب و ستون فقرات',
                 image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0MoQrYbawqdVlieVCav3xX7c44OMf43K2A&s',
-                phone: "۰۵۱ - ۳۸۴۴۵۶۷۸",
-                mobile: '۰۹۰۲۵۵۵۵۵۶۷۸',
+                price: 15000000
             }
 
             return doctor;
