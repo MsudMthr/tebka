@@ -1,16 +1,18 @@
-import {computed, ref} from 'vue';
+import {computed, ref, watch} from 'vue';
 import {useLoading} from "@/composables/loading.composable";
 import DoctorsService from "@/services/doctors.service";
 import CommentsService from "@/services/comments.service";
 import OfficeService from "@/services/office.service";
 import RulesService from "@/services/rules.service";
 import DateTime from "@/utils/date-time";
+import {useDoctorStore} from "@/stores/DoctorStore";
 
 export const useDoctor = () => {
     const doctor = ref({})
     const {endLoading, startLoading, isLoading} = useLoading();
     const doctorId = 194;
     const doctorUserName = 'DrHakak'
+
     function fetchDoctorDetails() {
         const params = {
             username: doctorUserName
@@ -60,15 +62,9 @@ export const useDoctor = () => {
                 ...officeDetails,
                 name: 'علی اکبر سلطانیان',
                 expertise: 'متخصص مغز و اعصاب و ستون فقرات',
-                rate: '4.6',
                 image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQj0MoQrYbawqdVlieVCav3xX7c44OMf43K2A&s',
                 phone: "۰۵۱ - ۳۸۴۴۵۶۷۸",
                 mobile: '۰۹۰۲۵۵۵۵۵۶۷۸',
-                rates: {
-                    doctor: 4.3,
-                    secretary: 4,
-                    reception: 4
-                }
             }
 
             return doctor;
@@ -90,7 +86,7 @@ export const useDoctor = () => {
 export const useDoctorComments = () => {
     const {endLoading, startLoading, isLoading} = useLoading();
     const comments = ref([]);
-
+    const doctorStore = useDoctorStore();
     const totalComments = computed(() => comments.value.length);
 
     const acceptRate = computed(() => {
@@ -120,6 +116,17 @@ export const useDoctorComments = () => {
 
         return totalRate / totalComments.value;
     });
+
+    const totalRate = computed(() => {
+        if (totalComments.value) {
+            return (Number(acceptRate.value) + Number(doctorRate.value) + Number(secretaryRate.value)) / 3
+        }
+        return 5
+    })
+
+    watch(() => totalComments.value,() => {
+        doctorStore.setDoctorRate(totalRate.value)
+    })
 
     function fetchComments() {
         startLoading();

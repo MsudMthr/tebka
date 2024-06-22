@@ -13,6 +13,10 @@ export const useDoctorStore = defineStore('doctor-store', () => {
         showReserveModal.value = true;
     }
 
+    function setDoctorRate(rate) {
+        doctor.value['rate'] = rate;
+    }
+
     function fetch() {
         startLoading();
         return fetchDoctor()
@@ -30,6 +34,7 @@ export const useDoctorStore = defineStore('doctor-store', () => {
     return {
         fetch,
         isLoading,
+        setDoctorRate,
         showReserveModal,
         showReserveModalHandler,
         doctor
