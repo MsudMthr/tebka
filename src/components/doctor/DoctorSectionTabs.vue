@@ -15,7 +15,6 @@ export default {
     name: "DoctorSectionTabs",
 
     setup() {
-        // todo => should fix scrollpy
         onMounted(() => {
             (function() {
                 'use strict';

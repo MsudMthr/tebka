@@ -1,7 +1,6 @@
 <template>
 <VLayout>
     <div v-if="doctorStore.isLoading">loading</div>
-    <!--    todo => should fix scrollpy-->
     <div
         v-else
         class="doctor-details container my-8 mt-md-4"
