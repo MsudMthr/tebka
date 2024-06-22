@@ -7,9 +7,8 @@
             {{$t('Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed')}}
         </p>
         <ol style="list-style: disc">
-            <li class="body-2 body-1-md mt-4">در راستای استفاده صحیح از سامانه و بهره‌مندی مراجعه‌کنندگان واقعی، امکان لغو نوبت و بازگشت وجه مقدور نمی‌باشد اما در صورت تماس تلفنی با مطب، امکان انتقال نوبت به زمانی دیگر وجود خواهد داشت.</li>
-            <li class="body-2 body-1-md mt-4">نوبت دهی برای این پزشک تنها تا 4 ماه آتی صورت می گیرد.</li>
-            <li class="body-2 body-1-md mt-4">مبلغ ویزیت بیعانه می باشد و مبلغ نهایی در مطب محاسبه و دریافت می شود.</li>
+
+            <li v-for="rule of doctorStore.doctor.rules" :key="rule.id" class="body-2 body-1-md mt-4">{{rule.rule}}</li>
         </ol>
     </div>
 
@@ -33,6 +32,7 @@
 <script>
 import {defineComponent} from 'vue'
 import VCheckbox from "@/components/form/VCheckBox.vue";
+import {useDoctorStore} from "@/stores/DoctorStore";
 
 export default defineComponent({
     name: "DoctorReserveRules",
@@ -48,12 +48,15 @@ export default defineComponent({
     emits:['update:formData'],
 
     setup(props, {emit}) {
+        const doctorStore = useDoctorStore()
+
         function update(value){
             emit('update:formData', { ...props.formData, accept: value });
 
         }
         return {
-            update
+            update,
+            doctorStore
         }
     }
 })
