@@ -66,6 +66,10 @@ export default {
     "Please do not use vpn when paying":"لطفا در هنگام پرداخت از vpn استفاده نکنید.",
     "national_code/passport":"کدملی / شماره پاسپورت",
     "first name and last name":"نام و نام خانوادگی",
+    "The national code is not valid":"کد ملی معتبر نمی باشد",
+    "This field should contain {number} digits":"این فیلد می بایست شامل {number} رقم باشد",
+    "The mobile number is not correct":"شماره موبایل صحیح نمی باشد",
     "mobile":"موبایل",
+    "This field is required!":"این فیلد الزامی است!",
     "Reference details":"مشخصات مراجعه کننده"
 };

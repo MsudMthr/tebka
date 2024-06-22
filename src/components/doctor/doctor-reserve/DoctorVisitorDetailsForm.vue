@@ -6,7 +6,7 @@
     <div class="mb-4">
         <VInput
             :modelValue="formData.national_code"
-            :rules="[validator.required()]"
+            :rules="[validator.required(), validator.nationalCode()]"
             @update:modelValue="value => updateFormData('national_code', value)"
             :placeholder="$t('national_code/passport')"
         />
@@ -23,7 +23,7 @@
     <div class="mb-4">
         <VInput
             :modelValue="formData.phone_number"
-            :rules="[validator.required()]"
+            :rules="[validator.required(),validator.mobile()]"
             @update:modelValue="value => updateFormData('phone_number', value)"
             :placeholder="$t('mobile')"
         />

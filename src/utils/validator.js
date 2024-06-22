@@ -100,6 +100,32 @@ class Validator {
             return true;
         };
     }
+    /**
+     * @param {String} [message]
+     * @returns {Function}
+     */
+    static nationalCode(message) {
+        return function(value) {
+            const text = message || t('The national code is not valid')
+
+            if (!value) {
+                return text;
+            }
+            let sum = 0;
+
+            for (let index = 0; index < value.length - 1; index++) {
+                const position = value.length - index;
+                sum += value[index] * position;
+            }
+
+            const controlNumber = Number(value[value.length - 1]);
+            const remaining = sum % 11;
+            if (value.length !== 10 || ((remaining < 2) ? (controlNumber !== remaining) : (controlNumber !== (11 - remaining)))) {
+                return text;
+            }
+            return true;
+        };
+    }
 
     /**
      * @param {Number} length
@@ -112,7 +138,21 @@ class Validator {
                 return true;
             }
 
-            return message || t('Validation error message');
+            return message || t('This field should contain {number} digits', {number: length});
+        };
+    }
+
+    /**
+     * @param {String} [message]
+     * @returns {Function}
+     */
+    static mobile(message) {
+        return function(value) {
+            const mobileRegex = /^([\\+]|00)?[\\+]?[(]?[0-9]{3}[)]?[-\s\\.]?[0-9]{3}[-\s\\.]?[0-9]{5,6}$/;
+            if (!mobileRegex.test(value)) {
+                return message || t('The mobile number is not correct')
+            }
+        return true;
         };
     }
 

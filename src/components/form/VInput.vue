@@ -21,7 +21,7 @@
 
         <div
             v-if="errors.length !== 0"
-            class="invalid-feedback"
+            class="invalid-feedback body-2 body-1-md"
         >{{ errors[0] }}</div>
     </div>
 </template>

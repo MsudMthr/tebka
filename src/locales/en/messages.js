@@ -65,7 +65,11 @@ export default {
     "Please do not use vpn when paying":"Please do not use vpn when paying",
     "important points":"important points",
     "national_code/passport":"national_code/passport",
+    "This field is required!":"This field is required!",
+    "This field should contain {number} digits":"This field should contain {number} digits",
+    "The national code is not valid":"The national code is not valid",
     "first name and last name":"first name and last name",
+    "The mobile number is not correct":"The mobile number is not correct",
     "Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed":"Dear client, the announced time is only the time of your presence in the office, and due to other visits, your visit may be delayed",
     "This day's appointments are full":"This day's appointments are full"
 };
