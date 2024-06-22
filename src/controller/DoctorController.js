@@ -4,6 +4,7 @@ import DoctorsService from "@/services/doctors.service";
 import CommentsService from "@/services/comments.service";
 import OfficeService from "@/services/office.service";
 import RulesService from "@/services/rules.service";
+import DateTime from "@/utils/date-time";
 
 export const useDoctor = () => {
     const doctor = ref({})
@@ -154,8 +155,8 @@ export const useDoctorAppointment = () => {
     const {endLoading, startLoading, isLoading} = useLoading();
     const items = [
         {
-            date: '2024-06-10',
-            value: '2024-06-10',
+            date: DateTime.today().gregorian().format('yyyy-MM-dd'),
+            value: DateTime.today().gregorian().format('yyyy-MM-dd'),
             times: [
                 {
                     disable: false,
